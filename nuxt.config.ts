@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: false },
+  devtools: { enabled: true },
 
   runtimeConfig: {
     RESEND_KEY: process.env.RESEND_KEY,
