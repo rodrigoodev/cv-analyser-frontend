@@ -31,7 +31,7 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: "https://olhameucv-ai.vercel.app/",
+    url: "https://olhameucv.dev/",
   },
 
   css: ["@/assets/css/base.css"],
