@@ -34,7 +34,7 @@ export const usePixStore = defineStore("pix", () => {
       switch (event.type) {
         case "PAYMENT_STATUS":
           if (event.data.status === "COMPLETED") {
-            await confirmPayment(processId, correlationId);
+            confirmPayment(processId, correlationId);
           }
           break;
         case "CHARGE_EXPIRED":
