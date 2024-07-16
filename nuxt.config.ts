@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     RESEND_KEY: process.env.RESEND_KEY,
     OPEN_PIX: process.env.OPEN_PIX,
+    PRICE: process.env.PRICE,
     turso: {
       databaseUrl: "",
       authToken: "",

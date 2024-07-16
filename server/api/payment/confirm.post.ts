@@ -117,7 +117,7 @@ export default defineEventHandler(async (event) => {
     });
 
     const options = {
-      from: "Acme <onboarding@resend.dev>",
+      from: "OlhamosSeuCV <updates.olhameucv.dev>",
       to: String(emailMatch[0]),
       subject: "Avaliação de currículo",
       html: template.html,

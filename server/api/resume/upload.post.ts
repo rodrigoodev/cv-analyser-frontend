@@ -34,7 +34,6 @@ export default defineEventHandler(async (event) => {
 
     const emailRegex = /[\w.-]+@[\w.-]+\.\w+/;
     const emailMatch = resumeText?.match(emailRegex);
-    console.log("Email", emailMatch);
 
     if (emailMatch) {
       await client.execute({

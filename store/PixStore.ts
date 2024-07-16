@@ -20,7 +20,7 @@ export const usePixStore = defineStore("pix", () => {
     window.$openpix.push([
       "pix",
       {
-        value: 1000,
+        value: parseInt(import.meta.env.VITE_PRICE) ?? 1000,
         correlationID: currentCorrelationID.value,
         description: "Avaliação de currículo",
       },
@@ -30,7 +30,6 @@ export const usePixStore = defineStore("pix", () => {
   }
 
   function setupPaymentListeners(processId: string, correlationId: string) {
-    console.log("Setting up payment listeners", processId, correlationId);
     const handlePaymentStatus = async (event: OpenPixEvent) => {
       switch (event.type) {
         case "PAYMENT_STATUS":
@@ -53,7 +52,6 @@ export const usePixStore = defineStore("pix", () => {
   }
 
   async function confirmPayment(processId: string, correlationId: string) {
-    console.log("Confirming payment", processId, correlationId);
     isExamine.value = true;
     try {
       isPixPaid.value = true;

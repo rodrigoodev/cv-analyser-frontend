@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
   });
 
   const options = {
-    from: "Acme <onboarding@resend.dev>",
+    from: "OlhamosSeuCV <updates.olhameucv.dev>",
     to: email,
     subject: "Avaliação de currículo",
     html: template.html,
@@ -21,7 +21,6 @@ export default defineEventHandler(async (event) => {
 
   try {
     await resend.emails.send(options);
-    console.log("Email sent to:", email);
 
     return { message: "Email sent" };
   } catch (error) {
