@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import vue from "@vitejs/plugin-vue";
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
@@ -9,6 +11,11 @@ export default defineNuxtConfig({
     turso: {
       databaseUrl: "",
       authToken: "",
+    },
+  },
+  nitro: {
+    rollupConfig: {
+      plugins: [vue()],
     },
   },
 
@@ -44,7 +51,6 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "shadcn-nuxt",
     "nuxt-lucide-icons",
-    "@vue-email/nuxt",
     "nuxt-og-image",
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",

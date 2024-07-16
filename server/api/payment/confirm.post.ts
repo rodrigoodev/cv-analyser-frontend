@@ -1,9 +1,5 @@
-import { Resend } from "resend";
 import { openai } from "~/libs/openai/openai";
 import { NewPrompt } from "~/libs/openai/promptbuilder";
-import { useCompiler } from "#vue-email";
-
-const resend = new Resend(process.env.RESEND_KEY);
 
 export default defineEventHandler(async (event) => {
   const { processId, correlationId } = await readBody(event);
@@ -110,23 +106,9 @@ export default defineEventHandler(async (event) => {
   try {
     const response = await openai.createCompletions(messages);
 
-    const template = await useCompiler("feedbackAnalyse.vue", {
-      props: {
-        feedbackResponse: response,
-      },
-    });
-
-    const options = {
-      from: "OlhamosSeuCV <updates.olhameucv.dev>",
-      to: String(emailMatch[0]),
-      subject: "Avaliação de currículo",
-      html: template.html,
-    };
-
-    await resend.emails.send(options);
     return { response };
   } catch (error) {
-    console.error("Error processing response or sending email:", error);
+    console.error("Error processing response:", error);
   }
 });
 

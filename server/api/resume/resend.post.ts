@@ -1,22 +1,21 @@
 import { Resend } from "resend";
-import { useCompiler } from "#vue-email";
+import { render } from "@vue-email/render";
+import feedbackAnalyse from "~/emails/feedbackAnalyse.vue";
 
 const resend = new Resend(process.env.RESEND_KEY);
 
 export default defineEventHandler(async (event) => {
   const { email, feedbackResponse } = await readBody(event);
 
-  const template = await useCompiler("feedbackAnalyse.vue", {
-    props: {
-      feedbackResponse,
-    },
+  const template = await render(feedbackAnalyse, {
+    feedbackResponse,
   });
 
   const options = {
-    from: "OlhamosSeuCV <updates.olhameucv.dev>",
+    from: "update@updates.olhameucv.dev",
     to: email,
     subject: "Avaliação de currículo",
-    html: template.html,
+    html: template,
   };
 
   try {
