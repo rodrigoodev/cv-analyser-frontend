@@ -52,6 +52,7 @@ export default defineNuxtConfig({
     "shadcn-nuxt",
     "nuxt-lucide-icons",
     "nuxt-og-image",
+    "@nuxtjs/robots",
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
   ],
@@ -92,4 +93,10 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  robots: {
+    enabled: true,
+    allow: ["/"],
+    disallow: ["/confirm"],
+  }
 });
