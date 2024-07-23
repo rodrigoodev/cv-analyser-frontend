@@ -9,6 +9,7 @@ export const useGlobalStore = defineStore(
     const processId = ref("");
     const showFeedback = ref(false);
     const feedback = ref("");
+    const price = ref(null);
 
     const feedbackExam: ComputedRef<FeedbackResponse> = computed(() => {
       return JSON.parse(feedback.value) as FeedbackResponse;
@@ -27,6 +28,7 @@ export const useGlobalStore = defineStore(
       hasResume,
       showAlert,
       feedbackExam,
+      price,
       setResume,
     };
   },

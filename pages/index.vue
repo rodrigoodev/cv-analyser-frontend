@@ -62,13 +62,18 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import { useGlobalStore } from "@/store/GlobalStore";
 
 const globalStore = useGlobalStore();
 const { hasResume, showAlert, feedback } = storeToRefs(globalStore);
 
 const router = useRouter();
+const route = useRoute();
+
+if (route.query.priceBoladao) {
+  globalStore.price = Number(route.query.priceBoladao);
+}
 
 if (feedback.value) {
   router.push("/confirm");

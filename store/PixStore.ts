@@ -17,10 +17,16 @@ export const usePixStore = defineStore("pix", () => {
   function startPayment() {
     currentCorrelationID.value = generateUUID();
 
+    let value = parseInt(import.meta.env.VITE_PRICE) ?? 1000;
+    if (globalStore.price) {
+      value = globalStore.price;
+    }
+    if (value < 199) value = 1000;
+
     window.$openpix.push([
       "pix",
       {
-        value: parseInt(import.meta.env.VITE_PRICE) ?? 1000,
+        value,
         correlationID: currentCorrelationID.value,
         description: "Avaliação de currículo",
       },
