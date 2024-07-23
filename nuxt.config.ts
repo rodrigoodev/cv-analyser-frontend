@@ -55,6 +55,7 @@ export default defineNuxtConfig({
     "@nuxtjs/robots",
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
+    "nuxt-gtag",
   ],
 
   eslint: {
@@ -63,6 +64,9 @@ export default defineNuxtConfig({
         quotes: "double",
       },
     },
+  },
+  gtag: {
+    id: "G-4K1DK582KV",
   },
 
   googleFonts: {
@@ -98,5 +102,5 @@ export default defineNuxtConfig({
     enabled: true,
     allow: ["/"],
     disallow: ["/confirm"],
-  }
+  },
 });

@@ -24,6 +24,7 @@
     "clsx": "^2.1.0",
     "lucide-vue-next": "^0.370.0",
     "nuxt": "^3.11.2",
+    "nuxt-gtag": "^2.0.7",
     "nuxt-og-image": "^3.0.0-rc.54",
     "openai": "^4.36.0",
     "pdf-text": "^0.4.0",
